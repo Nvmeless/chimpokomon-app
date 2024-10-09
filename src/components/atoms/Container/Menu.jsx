@@ -1,16 +1,17 @@
 import React from "react";
 import { Button } from "..";
+import { DOM } from "../../nanites";
 
 const Menu = ({ children }) => {
   return (
-    <div
+    <DOM.StyledContainer
       style={{
         display: "flex",
         justifyContent: "space-around",
       }}
     >
       {children}
-    </div>
+    </DOM.StyledContainer>
   );
 };
 

@@ -1,12 +1,8 @@
 import React from "react";
-import { styled } from "styled-components";
-
-const StyledCard = styled.ul`
-  background-color: ${(props) => props.backgroundColor ?? "purple"};
-`;
+import { DOM } from "../../nanites";
 
 const Card = (props) => {
-  return <StyledCard {...props}></StyledCard>;
+  return <DOM.StyledContainer {...props}></DOM.StyledContainer>;
 };
 
 export default Card;

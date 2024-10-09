@@ -1,7 +1,8 @@
 import React from "react";
+import { DOM } from "../../nanites";
 
 const Base = ({ ...props }) => {
-  return <div {...props}></div>;
+  return <DOM.StyledButton {...props}></DOM.StyledButton>;
 };
 
 export default Base;

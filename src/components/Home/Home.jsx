@@ -1,3 +1,4 @@
+import { Card } from "../atoms/Container";
 import * as style from "./Home.module.css";
 import React from "react";
 
@@ -9,6 +10,10 @@ export default class Home extends React.Component {
 
   render() {
     console.log(this.props);
-    return <div>{this.props.message}</div>;
+    return (
+      <div>
+        <Card >{this.props.message}</Card>
+      </div>
+    );
   }
 }

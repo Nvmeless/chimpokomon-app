@@ -1,3 +1,3 @@
 import Menu from "./Menu";
-
-export { Menu };
+import Card from "./Card";
+export { Menu, Card };

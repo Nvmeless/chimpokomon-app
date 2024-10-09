@@ -6,26 +6,32 @@ import Home from "./components/Home/Home";
 import { Text, Button, Container } from "./components/atoms";
 import { Menu } from "./components/molecules";
 function App() {
-  const [toto, setToto] = useState("toto");
+  const [menu, setMenu] = useState("toto");
+
+  const displayContent = () => {
+    switch (menu) {
+      case "profile":
+        return <Home message="Profil"></Home>;
+        break;
+      case "home":
+      default:
+        return <Home message="Home"></Home>;
+        break;
+    }
+  };
   return (
     <div className="App">
       <Menu
         onMenuChange={(arg) => {
-          setToto(arg);
+          setMenu(arg);
         }}
         configs={[
-          { displayName: "Profile" },
-          { displayName: "Home" },
-          { displayName: "Contact" },
+          { displayName: "Profile", slug: "profile" },
+          { displayName: "Home", slug: "home" },
+          { displayName: "Contact", slug: "contact" },
         ]}
       ></Menu>
-      <Home message="Hello World"></Home>
-      <Text.Title title="Mon super Titre"></Text.Title>
-      <Text.Paragraph text="Bonjour a tous, regardez ce super texte"></Text.Paragraph>
-      <Text.SubTitle>
-        <Text.Paragraph text="Mon super deuxieme Titre"></Text.Paragraph>
-      </Text.SubTitle>
-      <Text.Paragraph>{toto}</Text.Paragraph>
+      {displayContent()}
     </div>
   );
 }

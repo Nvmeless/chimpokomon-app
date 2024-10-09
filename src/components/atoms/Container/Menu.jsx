@@ -6,8 +6,6 @@ import { NightThemeProviderContext } from "../../../providers/NightThemeProvider
 const Menu = ({ children }) => {
   const context = useContext(NightThemeProviderContext);
 
-  console.log(context);
-
   return (
     <DOM.StyledContainer
       style={{

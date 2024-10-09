@@ -9,10 +9,9 @@ export default class Home extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
-        <Card >{this.props.message}</Card>
+        <Card>{this.props.message}</Card>
       </div>
     );
   }

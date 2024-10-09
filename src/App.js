@@ -53,6 +53,7 @@ function App() {
               { displayName: "Contact", slug: "contact" },
             ]}
           ></Menu>
+          <Button.NightSwitch></Button.NightSwitch>
           {displayContent()}
         </div>
       </NightThemeProvider>

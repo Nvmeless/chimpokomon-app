@@ -8,7 +8,7 @@ const NightSwitch = () => {
   const nightMode = useContext(NightThemeProviderContext);
 
   useEffect(() => {
-    checkInput.current.checked = nightMode.isNight;
+    checkInput.current.checked = !nightMode.isNight;
   }, []);
   return (
     <StyledWrapper>
@@ -62,7 +62,8 @@ const StyledWrapper = styled.div`
      so you can choose any size */
     --container-width: 5.625em;
     --container-height: 2.5em;
-    --container-radius: 6.25em;
+    // --container-radius: 6.25em;
+    --container-radius: 0em;
     /* radius 0 - minecraft mode :) */
     --container-light-bg: #3d7eae;
     --container-night-bg: #1d1f2c;

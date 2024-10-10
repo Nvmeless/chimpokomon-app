@@ -1,10 +1,10 @@
 import React from "react";
 import Clock from "../atoms/Clock";
-
+import History from "../molecules/History";
 const Profile = () => {
   return (
     <div>
-      <Clock></Clock>
+      <History></History>
     </div>
   );
 };

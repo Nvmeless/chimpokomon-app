@@ -5,9 +5,10 @@ import Home from "./components/Home/Home";
 // import { Title, Paragraph } from "./components/atoms/Text";
 import { Text, Button, Container } from "./components/atoms";
 import { Menu } from "./components/molecules";
-
+import { store } from "./store";
 import { NightThemeProvider } from "./providers/NightThemeProvider";
 import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
 import Clock from "./components/atoms/Clock";
 import Profile from "./components/pages/Profile";
 import Contact from "./components/pages/Contact";
@@ -57,32 +58,34 @@ function App() {
   }, [!isNight]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <NightThemeProvider
-        nightTheme={{ toggleNightMode: changeNightTheme, isNight: isNight }}
-      >
-        <div
-          className="App"
-          style={{
-            background: isNight ? "black" : "white",
-            color: isNight ? "white" : "black",
-          }}
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <NightThemeProvider
+          nightTheme={{ toggleNightMode: changeNightTheme, isNight: isNight }}
         >
-          <Menu
-            onMenuChange={(arg) => {
-              setMenu(arg);
+          <div
+            className="App"
+            style={{
+              background: isNight ? "black" : "white",
+              color: isNight ? "white" : "black",
             }}
-            configs={[
-              { displayName: "Profile", slug: "profile" },
-              { displayName: "Home", slug: "home" },
-              { displayName: "Contact", slug: "contact" },
-            ]}
-          ></Menu>
-          <Button.NightSwitch></Button.NightSwitch>
-          {displayContent()}
-        </div>
-      </NightThemeProvider>
-    </ThemeProvider>
+          >
+            <Menu
+              onMenuChange={(arg) => {
+                setMenu(arg);
+              }}
+              configs={[
+                { displayName: "Profile", slug: "profile" },
+                { displayName: "Home", slug: "home" },
+                { displayName: "Contact", slug: "contact" },
+              ]}
+            ></Menu>
+            <Button.NightSwitch></Button.NightSwitch>
+            {displayContent()}
+          </div>
+        </NightThemeProvider>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

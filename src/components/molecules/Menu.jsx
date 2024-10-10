@@ -12,7 +12,7 @@ const Menu = ({ configs, onMenuChange = (arg) => {} }) => {
             }}
             key={i}
           >
-            <Text.Paragraph rounded>{config.displayName}</Text.Paragraph>
+            <Text.Paragraph>{config.displayName}</Text.Paragraph>
           </Button.Base>
         );
       })}

@@ -1,20 +1,28 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { NightThemeProviderContext } from "../../../providers/NightThemeProvider";
 
 const NightSwitch = () => {
-  const [first, setFirst] = useState(true);
+  const checkInput = useRef();
 
   const nightMode = useContext(NightThemeProviderContext);
+
+  useEffect(() => {
+    checkInput.current.checked = nightMode.isNight;
+  }, []);
   return (
-    <StyledWrapper
-      onClick={() => {
-        nightMode.toggleNightMode(!nightMode.isNight);
-        console.log(nightMode.isNight);
-      }}
-    >
+    <StyledWrapper>
       <label className="theme-switch">
-        <input type="checkbox" className="theme-switch__checkbox" />
+        <input
+          onChange={() => {
+            nightMode.toggleNightMode(!nightMode.isNight);
+          }}
+          ref={checkInput}
+          type="checkbox"
+          className="theme-switch__checkbox"
+          name="test"
+          value="yes"
+        />
         <div className="theme-switch__container">
           <div className="theme-switch__clouds" />
           <div className="theme-switch__stars-container">

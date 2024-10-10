@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 
 const StyledButton = styled.button`
-  background-color: ${(props) => props.backgroundColor ?? "transparent"};
-  color: ${(props) => props.theme.colors.primary};
+  color:  ${(props) => props.theme.colors.containers.secondary}
+  background-color: ${(props) => props.theme.colors.containers.primary};
 `;
 
 export default StyledButton;

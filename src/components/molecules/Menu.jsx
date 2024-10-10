@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container } from "../atoms";
+import { Button, Container, Text } from "../atoms";
 
 const Menu = ({ configs, onMenuChange = (arg) => {} }) => {
   return (
@@ -8,12 +8,11 @@ const Menu = ({ configs, onMenuChange = (arg) => {} }) => {
         return (
           <Button.Base
             onClick={() => {
-              console.log(config);
               onMenuChange(config.slug);
             }}
             key={i}
           >
-            {config.displayName}
+            <Text.Paragraph rounded>{config.displayName}</Text.Paragraph>
           </Button.Base>
         );
       })}

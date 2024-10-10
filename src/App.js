@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Home from "./components/Home/Home";
@@ -8,13 +8,29 @@ import { Menu } from "./components/molecules";
 
 import { NightThemeProvider } from "./providers/NightThemeProvider";
 import { ThemeProvider } from "styled-components";
+import Clock from "./components/atoms/Clock";
+import Profile from "./components/pages/Profile";
+import Contact from "./components/pages/Contact";
 function App() {
   const [menu, setMenu] = useState("toto");
   const [isNight, setIsNight] = useState(false);
+  const [theme, setTheme] = useState({
+    colors: {
+      primary: isNight ? "black" : "white",
+      secondary: isNight ? "white" : "black",
+      containers: {
+        primary: isNight ? "black" : "white",
+        secondary: isNight ? "white" : "black",
+      },
+    },
+  });
   const displayContent = () => {
     switch (menu) {
+      case "contact":
+        return <Contact message="Profil"></Contact>;
+        break;
       case "profile":
-        return <Home message="Profil"></Home>;
+        return <Profile message="Profil"></Profile>;
         break;
       case "home":
       default:
@@ -26,13 +42,22 @@ function App() {
   const changeNightTheme = () => {
     setIsNight(!isNight);
   };
+  useEffect(() => {
+    // console.log("THEME CHANGE");
+    setTheme({
+      colors: {
+        primary: isNight ? "black" : "white",
+        secondary: isNight ? "white" : "black",
+        containers: {
+          primary: isNight ? "black" : "white",
+          secondary: isNight ? "white" : "black",
+        },
+      },
+    });
+  }, [!isNight]);
 
   return (
-    <ThemeProvider
-      theme={{
-        colors: { primary: "red" },
-      }}
-    >
+    <ThemeProvider theme={theme}>
       <NightThemeProvider
         nightTheme={{ toggleNightMode: changeNightTheme, isNight: isNight }}
       >

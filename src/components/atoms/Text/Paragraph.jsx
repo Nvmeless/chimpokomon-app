@@ -1,7 +1,7 @@
 import React from "react";
-
+import { DOM } from "../../nanites";
 const Paragraph = (props) => {
-  return <p {...props}></p>;
+  return <DOM.StyledParagraphe {...props}></DOM.StyledParagraphe>;
 };
 
 export default Paragraph;

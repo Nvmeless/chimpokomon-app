@@ -9,6 +9,7 @@ import { NightThemeProvider } from "./providers/NightThemeProvider";
 import { ThemeProvider } from "styled-components";
 import Profile from "./components/pages/Profile";
 import Contact from "./components/pages/Contact";
+import { Provider } from "react-redux";
 import FontAwesome from "./components/atoms/Icons/FontAwesome";
 function App() {
   const [menu, setMenu] = useState("toto");

@@ -8,6 +8,9 @@ const NightSwitch = () => {
   const nightMode = useContext(NightThemeProviderContext);
 
   useEffect(() => {
+
+
+    
     checkInput.current.checked = nightMode.isNight;
   }, []);
   return (

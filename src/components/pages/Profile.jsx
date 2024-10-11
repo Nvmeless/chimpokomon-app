@@ -4,6 +4,7 @@ import History from "../molecules/History";
 const Profile = () => {
   return (
     <div>
+      
       <History></History>
     </div>
   );

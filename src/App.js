@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Home from "./components/Home/Home";
 // import { Title, Paragraph } from "./components/atoms/Text";
 import { Text, Button, Container } from "./components/atoms";
 import { Menu } from "./components/molecules";
 import { store } from "./store";
 import { NightThemeProvider } from "./providers/NightThemeProvider";
 import { ThemeProvider } from "styled-components";
-import { Provider } from "react-redux";
-import Clock from "./components/atoms/Clock";
 import Profile from "./components/pages/Profile";
 import Contact from "./components/pages/Contact";
+import FontAwesome from "./components/atoms/Icons/FontAwesome";
 function App() {
   const [menu, setMenu] = useState("toto");
   const [isNight, setIsNight] = useState(false);
@@ -35,7 +33,7 @@ function App() {
         break;
       case "home":
       default:
-        return <Home message="Home"></Home>;
+        // return <Home message="Home"></Home>;
         break;
     }
   };

@@ -70,13 +70,13 @@ export const fetchPokemon = createAsyncThunk(
       maxBodyLength: Infinity,
       url: `https://pokeapi.co/api/v2/pokemon/${payload}`,
     };
+
     const result = await axios
       .request(config)
       .then((response) => {
         return response.data;
       })
       .catch((error) => {
-        console.log(error);
         console.error(error);
         return error;
       });

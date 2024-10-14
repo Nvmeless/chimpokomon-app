@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+} from "react";
 import styled from "styled-components";
 import { NightThemeProviderContext } from "../../../providers/NightThemeProvider";
 
@@ -6,9 +12,11 @@ const NightSwitch = () => {
   const checkInput = useRef();
 
   const nightMode = useContext(NightThemeProviderContext);
-
-  useEffect(() => {
+  const toggleNightMode = useCallback(() => {
     checkInput.current.checked = nightMode.isNight;
+  }, [nightMode.isNight]);
+  useEffect(() => {
+    toggleNightMode();
   }, []);
   return (
     <StyledWrapper>

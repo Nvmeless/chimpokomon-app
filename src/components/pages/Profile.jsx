@@ -6,6 +6,7 @@ import { Nes } from "../molecules";
 import Chimpokodex from "../templates/Chimpokodex";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPokemon } from "../../store";
+import { createPortal } from "react-dom";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -20,8 +21,6 @@ const Profile = () => {
   useEffect(() => {
     if (myChimpokomon && status === "success") {
       setDadId(pokefiche.id);
-       
-
     } else if (myChimpokomon === null) {
       setDadId(Math.floor(Math.random() * 152) + 1);
       setMomId(Math.floor(Math.random() * 152) + 1);
@@ -47,6 +46,12 @@ const Profile = () => {
 
   return (
     <>
+      {createPortal(
+        <Nes.Container style={{ position: "relative", top: 0, right: 0 }}>
+          Ceci est une Modal
+        </Nes.Container>,
+        document.getElementById("modalContainer")
+      )}
       {isLoaded === "success" ? (
         <Chimpokodex
           momId={momId}

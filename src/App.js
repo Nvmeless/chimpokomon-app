@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import FontAwesome from "./components/atoms/Icons/FontAwesome";
 import useColorByBenjamin from "./hooks/useColorByBenjamin";
 import useJinTheme from "./hooks/useTheme";
+import Three from "./components/pages/Three";
 function App() {
   const [menu, setMenu] = useState("toto");
   const [isNight, setIsNight] = useState(false);
@@ -51,6 +52,9 @@ function App() {
         break;
       case "profile":
         return <Profile message="Profil"></Profile>;
+        break;
+      case "three":
+        return <Three></Three>;
         break;
       case "home":
       default:
@@ -119,6 +123,7 @@ function App() {
                     { displayName: "Profile", slug: "profile" },
                     { displayName: "Home", slug: "home" },
                     { displayName: "Contact", slug: "contact" },
+                    { displayName: "Three", slug: "three" },
                   ]}
                 ></Menu>
                 <Button.NightSwitch></Button.NightSwitch>
